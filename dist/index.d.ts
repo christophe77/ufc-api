@@ -6,15 +6,15 @@ type Info = {
     active: boolean;
     nickname: string;
     division: string;
-    divisionScore: string;
 };
-type Win = {
+type Stat = {
     method: string;
     total: number;
 };
 type Profile = {
     info: Info;
-    wins: Win[];
+    stats: Stat[];
+    picture: string;
 };
 
 type Ranking = {

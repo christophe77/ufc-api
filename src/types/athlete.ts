@@ -6,13 +6,13 @@ export type Info = {
 	active: boolean;
 	nickname: string;
 	division: string;
-	divisionScore: string;
 };
-export type Win = {
+export type Stat = {
 	method: string;
 	total: number;
 };
 export type Profile = {
 	info: Info;
-	wins: Win[];
+	stats: Stat[];
+	picture: string;
 };

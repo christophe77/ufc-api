@@ -1,11 +1,16 @@
 {
 	"name": "ufc-api-js",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
+	],
+	"keywords": [
+		"ufc",
+		"mma",
+		"api"
 	],
 	"license": "MIT",
 	"scripts": {

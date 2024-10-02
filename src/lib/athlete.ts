@@ -16,9 +16,9 @@ export async function getProfile(name: string): Promise<Profile> {
 				active: false,
 				nickname: '',
 				division: '',
-				divisionScore: '',
 			},
-			wins: [],
+			stats: [],
+			picture: '',
 		};
 	}
 }

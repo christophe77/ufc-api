@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 
-import { Info, Profile, Win } from '../types/athlete';
+import { Info, Profile, Stat } from '../types/athlete';
 
 export function parseAthlete(athleteHtml: string): Profile {
 	const $ = cheerio.load(athleteHtml);
@@ -29,21 +29,26 @@ export function parseAthlete(athleteHtml: string): Profile {
 		active: isActive,
 		nickname: $('.hero-profile__nickname').text().replace(/['"]+/g, ''),
 		division: $('.hero-profile__division-title').text(),
-		divisionScore: $('.hero-profile__division-body').text(),
 	};
-	// Wins
-	const wins: Win[] = [];
-	const stats = $('.hero-profile__stat');
-	stats.each((_statIndex, stat) => {
-		wins.push({
-			method: $(stat).find('.hero-profile__stat-text').text(),
-			total: Number($(stat).find('.hero-profile__stat-numb').text()),
+	// Stats
+	const stats: Stat[] = []
+
+	const overallStatsElements = $('.athlete-stats__stat');
+
+	overallStatsElements.each((_statIndex, stat) => {
+		stats.push({
+			method: $(stat).find('.athlete-stats__stat-text').text(),
+			total: Number($(stat).find('.athlete-stats__stat-numb').text()),
 		});
 	});
+	// Picture
+	const picture : string = $('.hero-profile__image-wrap').find('img').attr('src') || "";
 	
 	const profile: Profile = {
 		info,
-		wins,
+		stats,
+		picture
 	};
+	console.log(JSON.stringify(profile))
 	return profile;
 }

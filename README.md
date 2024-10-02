@@ -50,9 +50,10 @@ Uses cheerio to scrap the data from ufc.com
     //        division: 'Lightweight Division',
     //        divisionScore: '22-6-0 (W-L-D)'
     //    },
-    //    wins: [
-    //        { method: 'Victoires par Knockout', total: 19 },
-    //        { method: 'Victoires par soumission', total: 1 },
-    //        { method: 'Ancien champion', total: 1 }
-    //    ]
+    //    stats: [
+    //        { method: 'Wins by Knockout', total: 19 },
+    //        { method: 'Wins by Submission', total: 1 },
+    //        { method: 'Former Champion', total: 1 }
+    //    ],
+    //    picture : 'https://ufc.com/images/styles/athlete_bio_full_body/s3/2021-07/MCGREGOR_CONOR_L_07-10.png?itok=xbg9Kwfj'
     // }

@@ -103,21 +103,23 @@ function parseAthlete(athleteHtml) {
   const info = {
     active: isActive,
     nickname: $(".hero-profile__nickname").text().replace(/['"]+/g, ""),
-    division: $(".hero-profile__division-title").text(),
-    divisionScore: $(".hero-profile__division-body").text()
+    division: $(".hero-profile__division-title").text()
   };
-  const wins = [];
-  const stats = $(".hero-profile__stat");
-  stats.each((_statIndex, stat) => {
-    wins.push({
-      method: $(stat).find(".hero-profile__stat-text").text(),
-      total: Number($(stat).find(".hero-profile__stat-numb").text())
+  const stats = [];
+  const overallStatsElements = $(".athlete-stats__stat");
+  overallStatsElements.each((_statIndex, stat) => {
+    stats.push({
+      method: $(stat).find(".athlete-stats__stat-text").text(),
+      total: Number($(stat).find(".athlete-stats__stat-numb").text())
     });
   });
+  const picture = $(".hero-profile__image-wrap").find("img").attr("src") || "";
   const profile = {
     info,
-    wins
+    stats,
+    picture
   };
+  console.log(JSON.stringify(profile));
   return profile;
 }
 
@@ -135,10 +137,10 @@ function getProfile(name) {
         info: {
           active: false,
           nickname: "",
-          division: "",
-          divisionScore: ""
+          division: ""
         },
-        wins: []
+        stats: [],
+        picture: ""
       };
     }
   });
@@ -149,7 +151,6 @@ var athlete = {
 var athlete_default = athlete;
 
 // src/index.ts
-ranking_default.getRanking();
 var src_default = lib_exports;
 export {
   src_default as default
